@@ -12,22 +12,31 @@ public class intro {
             nums[i] = num;
         }
 
-        System.out.println("Input target");
-        int target = scanner.nextInt();
-        for (int i = 0; i < nums.length - 2; i++) {
-            int j = i + 1;
-            while (j <= nums.length - 1) {
-                if (nums[i] + nums[j] == target) {
-                    result[0] = i;
-                    result[1] = j;
-                    System.out.println(result[0] + ", " + result[1]);
-                }
-             j++;
-            }
-            if (result[0] != 0 && result[1] != 0){
-                break;
-            }
+        HashMap<Integer, Integer>Sites=new HashMap<Integer, Integer> ();
+
+        for (int i = 0; i < nums.length; i++) {
+            Integer x = map.get(num[i]);
+
+
         }
+
+
+//        System.out.println("Input target");
+//        int target = scanner.nextInt();
+//        for (int i = 0; i < nums.length - 2; i++) {
+//            int j = i + 1;
+//            while (j <= nums.length - 1) {
+//                if (nums[i] + nums[j] == target) {
+//                    result[0] = i;
+//                    result[1] = j;
+//                    System.out.println(result[0] + ", " + result[1]);
+//                }
+//             j++;
+//            }
+//            if (result[0] != 0 && result[1] != 0){
+//                break;
+//            }
+//        }
 
     }
 }
