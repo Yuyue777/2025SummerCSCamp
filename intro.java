@@ -1,16 +1,17 @@
+import java.util.Arrays;
 public class intro {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int[] arr = {5, 6, 8, 1, 3, 4, 2, 9, 7};
         partition(arr, 0, arr.length - 1);
-
-    private int partition(int[] arr, int left, int right){
+        System.out.println(Arrays.toString(arr));
+    }
+    private static void partition(int[] arr, int left, int right){
         int pivot = arr[right];
         int indexS = right - 1;
         int indexB = left;
 
         while(indexS > indexB){
-            while(arr[indexS] => pivot){
+            while(arr[indexS] >= pivot){
                 indexS--;
             }
             while(arr[indexB] <= pivot) {
@@ -26,7 +27,7 @@ public class intro {
             partition(arr, indexS + 1, right);
         }
     }
-    private void swap(int[] arr, int i, int j){
+    private static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
