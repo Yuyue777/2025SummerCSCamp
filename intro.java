@@ -12,17 +12,19 @@ public class TreeNode {
     }
 }
 class Solution {
-    public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
-        return isMirror(root.left, root.right);
+    public int maxDepth(TreeNode root) {
+    if(root == null){
+        return 0;
     }
-    public boolean isMirror(TreeNode left, TreeNode right){
-        if(left == null && right == null)
-            return true;
-        if(left == null || right == null)
-            return false;
-        if(left.val != right.val)
-            return false;
-        return isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
+    public int getMaxDepth(TreeNode root, int level) {
+       if(root.left == null && root.right == null)
+           return level;
+       if(root.left != null && root.right == null)
+           return getMaxDepth(root.left, level + 1);
+       if(root.left == null && root.right != null)
+            return getMaxDepth(root.right, level + 1);
+        if(root.left != null && root.right != null)
+            return Math.max (getMaxDepth(root.right, level + 1),getMaxDepth(root.left, level + 1));
+        }
 }
