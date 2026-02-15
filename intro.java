@@ -1,20 +1,27 @@
 
 class Solution {
-    public int rob(int[] nums) {
-        int[] arr = new int[n];
-        arr[0] = nums[0];
-        if(nums[1] < arr[0]) {
-            arr[1] = arr[0];
-        }
-        int MaxValue = arr[1];
-        for (int i = 2; i < nums.length; i++) {
-            arr[i] = nums[i] + arr[i-2];
-            if(arr[i] < MaxValue){
-                arr[i] = MaxValue;
+    public int lengthOfLongestSubstring(String A){
+        int left = 0;
+        int n = A.length();
+        int right = left;
+        int result = 0;
+        Set<character> dic = new HashSet<character>();
+        while (right < n){
+            char a = A.charAt(right);
+            if(dic.contains(a)) {
+                result = Math.max(right - left, result);
+                while(dic.contains(A.charAt(left)){
+                    dic.remove(A.charAt(left));
+                    left++;
+                }
+                dic.add(a);
+                right++;
             }else{
-                MaxValue = arr[i];
+                right++;
+                dic.add(a);
             }
+
         }
-        return MaxValue;
+        return result;
     }
 }
